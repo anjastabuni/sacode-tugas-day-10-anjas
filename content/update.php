@@ -13,13 +13,13 @@ if (isset($_GET['id'])) {
         $pekerjaan = isset($_POST['pekerjaan']) ? $_POST['pekerjaan'] : '';
 
         // tambahkan data
-        $stmt = $pdo->prepare('UPDATE kontak SET id = ?, nama = ?, nptelp = ?, pekerjaan = ? WHERE id = ?');
+        $stmt = $pdo->prepare('UPDATE contact SET id = ?, nama = ?, nptelp = ?, pekerjaan = ? WHERE id = ?');
         $stmt->execute([$id, $nama, $email, $notelp, $pekerjaan, $_GET['id']]);
         $msg = 'Updated Successfully!';
     }
 
     // menampilkan semua data yang ada dalam tabel kontak
-    $stmt = $pdo->prepare('SELECT * FROM kontak WHERE id = ?');
+    $stmt = $pdo->prepare('SELECT * FROM contact WHERE id = ?');
     $stmt->execute([$_GET['id']]);
     $contact = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$contact) {

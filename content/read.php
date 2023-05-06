@@ -1,27 +1,24 @@
 <?php
 include '../library/functions.php';
-
 // koneksi ke database
 $pdo = pdo_connect_mysql();
-
 // mendapatkan halaman dari url parameter hanya page jika tidak ada maka tampilkan halaman default 
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 // data yg ditampilkan perhalaman 
 $records_per_page = 5;
 
 // mengambil data dari tabel kontak berdasarkan id
-$stmt = $pdo->prepare('SELECT * FROM kontak ORDER BY id LIMIT : current_page, :record_per_page');
+$stmt = $pdo->prepare('SELECT * FROM contact ORDER BY id LIMIT : current_page, :record_per_page');
 $stmt->bindValue(':current_page', ($page - 1) * $records_per_page, PDO::PARAM_INT);
-$stmt->bindValue(':current_page', $records_per_page, PDO::PARAM_INT);
+$stmt->bindValue(':record_per_page', $records_per_page, PDO::PARAM_INT);
 $stmt->execute();
 
-$contacts == $stmt->fetchAll(PDO::FETCH_ASSOC);
+$contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$num_contacts = $pdo->query('SELECT COUNT(*) FROM kontak')->fetchColumn();
+$num_contacts = $pdo->query('SELECT COUNT(*) FROM contact')->fetchColumn();
 
 ?>
 // memasukan template header
-
 <?= template_header('Read') ?>
 
 <div class="content read">

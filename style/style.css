@@ -57,7 +57,7 @@ body {
   border-bottom: 1px solid #ebebeb;
   color: #666666;
 }
-.read .create-content {
+.read .create-contact {
   display: inline-block;
   text-decoration: none;
   background-color: #38b673;
@@ -67,7 +67,7 @@ body {
   padding: 10px 15px;
   margin: 15px 0;
 }
-.read .create-content:hover {
+.read .create-contact:hover {
   background-color: #32a367;
 }
 .read .pagination {

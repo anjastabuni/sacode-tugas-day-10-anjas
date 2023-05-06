@@ -17,7 +17,7 @@ if (!empty($_POST)) {
     $pekerjaan = isset($_POST['pekerjaan']) ? $_POST['pekerjaan'] : '';
 
     // memasukan data baru ke dalam databse
-    $stmt = $pdo->prepare('INSERT INTO kontak VALUE (?, ?, ?, ?, ?)');
+    $stmt = $pdo->prepare('INSERT INTO contact VALUE (?, ?, ?, ?, ?)');
     $stmt->execute([$id, $nama, $email, $notelp, $pekerjaan]);
 
     $msg = 'berhasil ditambahkan';

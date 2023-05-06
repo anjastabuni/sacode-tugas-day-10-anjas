@@ -39,6 +39,5 @@ if (!empty($_POST)) {
         <label for="pekerjaan">Pekerjaan</label>
         <input type="text" name="pekerjaan" id="pekerjaan">
         <input type="submit" value="Create">
-
     </form>
 </div>
